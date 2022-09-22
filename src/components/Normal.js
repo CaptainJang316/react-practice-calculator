@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from "styled-components";
 
 function Normal() {
     const [outPut, setOutPut] = React.useState('0');
@@ -50,12 +51,31 @@ function Normal() {
     })
 
 
+    const OutputDiv = styled.div`
+        background-color: gainsboro;
+        border: 1px solid gray;
+        margin-bottom: 10px;
+        padding-top: 7px;
+        padding-right: 15px;
+        width: auto;
+        height: 40px;
+        text-align: right;
+        font-size: 1.5rem;
+    `;
+
+    const InputButton = styled.button`
+        margin: 5px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    `;
+
     return (
         <div>
-            <div className="output-div">
+            <OutputDiv>
                 {console.log("outPut!!: ", outPut)}
                 <div>{outPut}</div>
-            </div>
+            </OutputDiv>
             <div className='calculator-body-column' id="history-column">
                 <button className='input-button' onClick={() => setResultOupPut([])}>clear History</button>
                 {resultOupPut.map(history => {
@@ -65,38 +85,38 @@ function Normal() {
             </div>
             <div className='calculator-body-column'>
                 <div className='buttons-div'>
-                    <button className='input-button' onClick={() => setOutPut('0')}>C</button>
-                    <button className='input-button' onClick={() => getInput('(')}>(</button>
-                    <button className='input-button' onClick={() => getInput(')')}>)</button>
-                    <button className='input-button' onClick={() => getInput('%')}>%</button>
+                    <InputButton onClick={() => setOutPut('0')}>C</InputButton>
+                    <InputButton onClick={() => getInput('(')}>(</InputButton>
+                    <InputButton onClick={() => getInput(')')}>)</InputButton>
+                    <InputButton onClick={() => getInput('%')}>%</InputButton>
                 </div>
                 <div className='buttons-div'>
-                    <button className='input-button' onClick={() => getInput('7')}>7</button>
-                    <button className='input-button' onClick={() => getInput('8')}>8</button>
-                    <button className='input-button' onClick={() => getInput('9')}>9</button>
-                    <button className='input-button' onClick={() => getInput('/')}>/</button>
+                    <InputButton onClick={() => getInput('7')}>7</InputButton>
+                    <InputButton onClick={() => getInput('8')}>8</InputButton>
+                    <InputButton onClick={() => getInput('9')}>9</InputButton>
+                    <InputButton onClick={() => getInput('/')}>/</InputButton>
                 </div>
                 <div className='buttons-div'>
-                    <button className='input-button' onClick={() => getInput('4')}>4</button>
-                    <button className='input-button' onClick={() => getInput('5')}>5</button>
-                    <button className='input-button' onClick={() => getInput('6')}>6</button>
-                    <button className='input-button' onClick={() => getInput('*')}>*</button>
+                    <InputButton onClick={() => getInput('4')}>4</InputButton>
+                    <InputButton onClick={() => getInput('5')}>5</InputButton>
+                    <InputButton onClick={() => getInput('6')}>6</InputButton>
+                    <InputButton onClick={() => getInput('*')}>*</InputButton>
                 </div>
                 <div className='buttons-div'>
-                    <button className='input-button' onClick={() => getInput('1')}>1</button>
-                    <button className='input-button' onClick={() => getInput('2')}>2</button>
-                    <button className='input-button' onClick={() => getInput('3')}>3</button>
-                    <button className='input-button' onClick={() => getInput('-')}>-</button>
+                    <InputButton onClick={() => getInput('1')}>1</InputButton>
+                    <InputButton onClick={() => getInput('2')}>2</InputButton>
+                    <InputButton onClick={() => getInput('3')}>3</InputButton>
+                    <InputButton onClick={() => getInput('-')}>-</InputButton>
                 </div>
                 <div className='buttons-div'>
-                    <button className='input-button' onClick={() => getInput('0')}>0</button>
-                    <button className='input-button' onClick={() => getInput('.')}>.</button>
-                    <button className='input-button' onClick={() => getResult()}>=</button>
-                    <button className='input-button' onClick={() => getInput('+')}>+</button>
+                    <InputButton onClick={() => getInput('0')}>0</InputButton>
+                    <InputButton onClick={() => getInput('.')}>.</InputButton>
+                    <InputButton onClick={() => getResult()}>=</InputButton>
+                    <InputButton onClick={() => getInput('+')}>+</InputButton>
                 </div>
             </div>
             <div className='calculator-body-column'>
-                <button className='input-button' onClick={() => backSpace()}>←</button>
+                <InputButton onClick={() => backSpace()}>←</InputButton>
             </div>
         </div>
     );
