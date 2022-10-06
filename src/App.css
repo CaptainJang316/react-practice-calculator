@@ -2,14 +2,6 @@
   text-align: center;
 }
 
-.calculator-body-column {
-  display: inline-block;
-  vertical-align: top;
-}
-
-
-#history-column {
-  padding-left: 15px;
-  padding-right: 15px;
-  border-radius: 2px;
-}
+/* * {
+  margin: 0px;
+} */

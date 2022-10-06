@@ -70,20 +70,31 @@ function Normal() {
         font-size: 20px;
     `;
 
+    const CalculatorBodyColumn = styled.div`
+        display: inline-block;
+        vertical-align: top;
+    `;
+
+    const HistoryColumn = styled(CalculatorBodyColumn)`
+        padding-top: 3px;
+        // padding-right: 15px;
+        border-radius: 2px;
+    `;
+
     return (
         <div>
             <OutputDiv>
                 {console.log("outPut!!: ", outPut)}
                 <div>{outPut}</div>
             </OutputDiv>
-            <div className='calculator-body-column' id="history-column">
+            <HistoryColumn>
                 <button className='input-button' onClick={() => setResultOupPut([])}>clear History</button>
                 {resultOupPut.map(history => {
                         console.log(history);
                         return <p onClick={() => setOutPut(history.expression)}>{history.result}</p>
                     })}
-            </div>
-            <div className='calculator-body-column'>
+            </HistoryColumn>
+            <CalculatorBodyColumn>
                 <div className='buttons-div'>
                     <InputButton onClick={() => setOutPut('0')}>C</InputButton>
                     <InputButton onClick={() => getInput('(')}>(</InputButton>
@@ -114,10 +125,10 @@ function Normal() {
                     <InputButton onClick={() => getResult()}>=</InputButton>
                     <InputButton onClick={() => getInput('+')}>+</InputButton>
                 </div>
-            </div>
-            <div className='calculator-body-column'>
+            </CalculatorBodyColumn>
+            <CalculatorBodyColumn>
                 <InputButton onClick={() => backSpace()}>←</InputButton>
-            </div>
+            </CalculatorBodyColumn>
         </div>
     );
 }

@@ -12,15 +12,26 @@ const Calculator = styled.div`
   padding: 15px;
 `;
 
+const Board = styled.div`
+  background-color: ${(props) => props.theme.backgroundColor};
+  text-align: center;
+  margin-top: 0px; 
+  height: 44rem;
+`;
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+
+
 function App() {
   return (
-    <div className="app">
-      <h1>Calculator</h1>
+    <Board>
+      <Title>Calculator</Title>
       <Calculator>
         <Normal/>
       </Calculator>
-    </div>
-    
+    </Board>
   );
 }
 
